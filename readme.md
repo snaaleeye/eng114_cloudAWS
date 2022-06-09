@@ -83,10 +83,17 @@ allow port 3000 for access.
 
 scp or rsync - common commands used to migrate 
 
-scp command example:
-scp -i .pem -r /Users/sharmakenaaleeye/eng114_cloudAWS/app ubuntu@ip
+### Enter AWS
 
-Create mongoDB 
+Inside local .ssh folder do the following commands:
+- chmod 400 name.pem
+- ssh -i ".pem" ubuntu@ec2... compute.amazonaws.com
+
+To copy file or folder do the following. 
+- For directory add -r after .pem
+ scp -i name.pem "file you want to move without quotes" ubuntu@ip... compute.amazonaws.com: if you want to send file to a specific area add it here, if not leave blank. 
+
+mongoDB Task
 
 - Create new ubuntu 18.04 instance/server
 - create a security group for our db
@@ -96,3 +103,65 @@ Create mongoDB
 - mongodb configuration - the same script should work
 - make the changes to mongod.conf file to allow app ip to connect to 27017
 - restart and enable mongodb
+
+### Setting up app
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+sudo apt-get install nginx -y
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs 
+sudo npm install pm2 -g
+sudo apt-get install python-software-properties -y
+
+cd app/app/
+sudo npm install -y
+sudo npm start -d
+
+
+### Setting up mongoDB
+
+sudo apt-get update -y
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927
+
+echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20
+
+sudo echo "export DB_HOST=mongodb://ENTER DB IP ADDRESS HERE/posts" >> ~/.bashrc
+source ~/.bashrc
+
+sudo nano /etc/mongod.conf - change this to 27017 and 0.0.0.0 to allow all or to make it private enter app ip
+
+sudo systemctl restart mongod
+sudo systemctl enable mongod
+sudo systemctl status mongod
+
+repeat these steps inside app machine
+
+cd app/app/
+sudo npm install -y
+sudo npm start -d
+node seeds/seed.js
+sudo npm start -d
+
+Tips:
+Make sure rules are correct in instance
+Make sure DB_HOST name is correct
+Check mongod.conf is correct 
+Check correct versions are running. 
+
+What are Amazon Machine Image - AMI
+some sort of cost is still being charged
+save money not lose data 
+Create a snapshot 
