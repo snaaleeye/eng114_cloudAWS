@@ -213,6 +213,9 @@ Check mongod status
 Check default port 3000 file is correct
 Check all ips are correct
 
+![ami_lifecycle](https://user-images.githubusercontent.com/105854053/172901440-605d455d-92e5-42d6-b375-d4edf4f082b0.png)
+
+
 What are Amazon Machine Image - AMI
 - AMI allows you to store a snapshot of your instance. 
 some sort of cost is still being charged
