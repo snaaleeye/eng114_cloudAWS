@@ -129,7 +129,9 @@ To copy file or folder do the following.
 - For directory add -r after .pem
  scp -i name.pem "file you want to move without quotes" ubuntu@ip... compute.amazonaws.com: if you want to send file to a specific area add it here, if not leave blank. 
 
- scp or rsync - common commands used to migrate 
+ scp or rsync - common commands used to migrate
+
+ Moving directories takes a very long time. 
 
 ### Once inside the app secure shell (.ssh) run the following commands.
 
@@ -145,6 +147,10 @@ sudo systemctl status nginx
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs 
 sudo npm install pm2 -g
+
+#if sudo npm install pm2 does not work try sudo  
+#apt-get install npm
+
 sudo apt-get install python-software-properties -y
 
 sudo nano cp default /etc/nginx/sites-available/ # port 3000 details
