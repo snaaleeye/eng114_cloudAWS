@@ -74,15 +74,25 @@ https://aws.amazon.com/what-is-aws/
 - Tag keys must be unique per resource  
 - Do not use the “aws:” prefix in your tag name or values because it is reserved for AWS use
 
-### What is laaS 
-Infrastructure as a service (IaaS) is a type of cloud computing service that offers essential compute, storage, and networking resources on demand, on a pay-as-you-go basis. IaaS is one of the four types of cloud services, along with software as a service (SaaS), platform as a service (PaaS), and serverless.
 
-### What is Platform as a service (PaaS)
-Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. You purchase the resources you need from a cloud service provider on a pay-as-you-go basis and access them over a secure Internet connection.
+security group rules: allow port
+allow port 22 from your ip only. 
+globally ssh port 22
+allow port 80 for nginx (this is a default port for browser)
+allow port 3000 for access. 
 
-### What is SaaS
+scp or rsync - common commands used to migrate 
 
-Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365).
+scp command example:
+scp -i .pem -r /Users/sharmakenaaleeye/eng114_cloudAWS/app ubuntu@ip
 
-SaaS provides a complete software solution that you purchase on a pay-as-you-go basis from a cloud service provider. You rent the use of an app for your organisation, and your users connect to it over the Internet, usually with a web browser. All of the underlying infrastructure, middleware, app software, and app data are located in the service provider’s data centre. The service provider manages the hardware and software, and with the appropriate service agreement, will ensure the availability and the security of the app and your data as well. SaaS allows your organisation to get quickly up and running with an app at minimal upfront cost.
+Create mongoDB 
 
+- Create new ubuntu 18.04 instance/server
+- create a security group for our db
+- Allow our localhost to ssh in means port 22
+- Allow default port access of mongodb 27017
+- db must not have public access 
+- mongodb configuration - the same script should work
+- make the changes to mongod.conf file to allow app ip to connect to 27017
+- restart and enable mongodb
