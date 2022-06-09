@@ -81,17 +81,6 @@ globally ssh port 22
 allow port 80 for nginx (this is a default port for browser)
 allow port 3000 for access. 
 
-scp or rsync - common commands used to migrate 
-
-### Enter AWS
-
-Inside local .ssh folder do the following commands:
-- chmod 400 name.pem
-- ssh -i ".pem" ubuntu@ec2... compute.amazonaws.com
-
-To copy file or folder do the following. 
-- For directory add -r after .pem
- scp -i name.pem "file you want to move without quotes" ubuntu@ip... compute.amazonaws.com: if you want to send file to a specific area add it here, if not leave blank. 
 
 mongoDB Task
 
@@ -104,7 +93,45 @@ mongoDB Task
 - make the changes to mongod.conf file to allow app ip to connect to 27017
 - restart and enable mongodb
 
-### Setting up app
+# Two-Tier Architecture
+The client is on the first tier and the database server and web application server reside on the same seerver machine on the second tier. 
+
+The second tier serves the data and executes the business logic for the web application
+
+The second tier is responsible for providing the availability, scalability, and performance characteristics for the organisation's web environment 
+
+### How to set up app and mongoDB on AWS
+
+### Create instance on AWS for app
+
+1. Instance details
+- use default network 
+- use subnet default eu-west 1a
+- Auto-assign Public IP - Enable (if you are in production it has to be private)
+
+2. Tags
+Follow AWS naming convention e.g. Name eng114_sharmake_app
+
+3. Configure Security Group
+Create new or use existing e.g. eng114_sharmake_db_sg (name + description)
+- allow port 22 from your ip only - globally ssh 
+- allow port 80 for nginx (this is a default port for browser)
+- allow port 3000 for access 
+
+4. Setting up instance for DB is the same but make ip for security group 27017 app ip/32
+
+### Connect local to AWS
+Inside local .ssh folder do the following commands:
+1. chmod 400 name.pem
+2. ssh -i ".pem" ubuntu@ec2... compute.amazonaws.com
+
+To copy file or folder do the following. 
+- For directory add -r after .pem
+ scp -i name.pem "file you want to move without quotes" ubuntu@ip... compute.amazonaws.com: if you want to send file to a specific area add it here, if not leave blank. 
+
+ scp or rsync - common commands used to migrate 
+
+### Once inside the app secure shell (.ssh) run the following commands.
 
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -120,14 +147,23 @@ sudo apt-get install -y nodejs
 sudo npm install pm2 -g
 sudo apt-get install python-software-properties -y
 
+sudo nano cp default /etc/nginx/sites-available/ # port 3000 details
+sudo nginx -t 
+sudo systemctl restart nginx
+sudo systemctl enable nginx
+
+sudo echo "export DB_HOST=mongodb://ENTER DB IP HERE:27017/posts" >> ~/.bashrc
+source ~/.bashrc
+
 cd app/app/
 sudo npm install -y
 sudo npm start -d
 
+- At this point the nginx page and app should work. 
 
-### Setting up mongoDB
+### Move into the db secure shell (ssh) and run the following commands
 
-sudo apt-get update -y
+sudo apt-get update -y #checks the internet
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927
 
@@ -147,21 +183,46 @@ sudo systemctl restart mongod
 sudo systemctl enable mongod
 sudo systemctl status mongod
 
-repeat these steps inside app machine
+### Move back into the app ssh and repeat these steps inside app machine
 
 cd app/app/
-sudo npm install -y
 sudo npm start -d
-node seeds/seed.js
+
+### If the text does not appear try this inside app ssh
+cd app/app/
+node seeds/seed.js 
 sudo npm start -d
+
+### To run after leaving ssh run 
+sudo npm start -d (nohup node server.js > /dev/null 2>&1 &) # to run in the background 
+
 
 Tips:
 Make sure rules are correct in instance
 Make sure DB_HOST name is correct
 Check mongod.conf is correct 
 Check correct versions are running. 
+Check nginx status
+Check mongod status
+Check default port 3000 file is correct
+Check all ips are correct
 
 What are Amazon Machine Image - AMI
+- AMI allows you to store a snapshot of your instance. 
 some sort of cost is still being charged
 save money not lose data 
 Create a snapshot 
+
+How to create AMI?
+1. Tick the instance you want to copy
+2. Click actions - images and templates - create image
+3. Enter image name and image description e.g. eng114_sharmake_db_ami
+
+How to use AMI?
+1. Go AMI and find the AMI you created
+2. Tick the AMI you want to use
+3. Launch instance from AMI
+4. Connecting is the same as for a regular instance
+
+When using AMI - ensure when connecting to instance to change root to ubuntu e.g. ssh -i ".pem" root@ec2ip.eu-west-1.compute.amazonaws.com should be ssh -i ".pem" ubuntu@ec2ip.eu-west-1.compute.amazonaws.com 
+
