@@ -215,6 +215,9 @@ Check all ips are correct
 
 ![ami_lifecycle](https://user-images.githubusercontent.com/105854053/172901440-605d455d-92e5-42d6-b375-d4edf4f082b0.png)
 
+![image](https://user-images.githubusercontent.com/105854053/173022469-928509c6-34df-45c9-b1cf-a13861158197.png)
+
+
 
 What are Amazon Machine Image - AMI
 - AMI allows you to store a snapshot of your instance. 
