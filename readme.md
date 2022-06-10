@@ -156,7 +156,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 sudo systemctl enable nginx
 
-sudo echo "export DB_HOST=mongodb://ENTER DB IP HERE:27017/posts" >> ~/.bashrc
+sudo echo "export DB_HOST=mongodb://172.31.20.139:27017/posts" >> ~/.bashrc
 source ~/.bashrc
 
 cd app/app/
