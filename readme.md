@@ -213,9 +213,7 @@ Check mongod status
 Check default port 3000 file is correct
 Check all ips are correct
 
-![ami_lifecycle](https://user-images.githubusercontent.com/105854053/172901440-605d455d-92e5-42d6-b375-d4edf4f082b0.png)
-
-![image](https://user-images.githubusercontent.com/105854053/173022469-928509c6-34df-45c9-b1cf-a13861158197.png)
+![Two-tier diagram drawio (1)](https://user-images.githubusercontent.com/105854053/173023714-dd66d61b-12a2-4c33-8537-7dc181953020.png)
 
 
 
