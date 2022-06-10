@@ -9,7 +9,7 @@ sudo systemctl status nginx
 
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs 
-sudo apt-get install npm
+sudo apt-get install npm -y
 sudo npm install pm2 -g
 
 sudo apt-get install python-software-properties -y
@@ -26,10 +26,9 @@ sudo mv default /etc/nginx/sites-available/default
 
 sudo systemctl restart nginx
 
-sudo echo "export DB_HOST=mongodb://172.31.20.139:27017/posts" >> ~/.bashrc
+sudo echo "export DB_HOST=mongodb://34.248.111.132:27017/posts" >> ~/.bashrc
 
 source ~/.bashrc
 
-cd app/app/
 sudo npm install -y
-sudo npm start -d
+
