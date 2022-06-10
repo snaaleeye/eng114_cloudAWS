@@ -146,10 +146,8 @@ sudo systemctl status nginx
 
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs 
+sudo apt-get install npm
 sudo npm install pm2 -g
-
-#if sudo npm install pm2 does not work try sudo  
-#apt-get install npm
 
 sudo apt-get install python-software-properties -y
 
@@ -179,9 +177,6 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20
-
-sudo echo "export DB_HOST=mongodb://ENTER DB IP ADDRESS HERE/posts" >> ~/.bashrc
-source ~/.bashrc
 
 sudo nano /etc/mongod.conf - change this to 27017 and 0.0.0.0 to allow all or to make it private enter app ip
 
@@ -216,7 +211,6 @@ Check all ips are correct
 ![Two-tier diagram drawio (1)](https://user-images.githubusercontent.com/105854053/173023714-dd66d61b-12a2-4c33-8537-7dc181953020.png)
 
 
-
 What are Amazon Machine Image - AMI
 - AMI allows you to store a snapshot of your instance. 
 some sort of cost is still being charged
@@ -233,6 +227,33 @@ How to use AMI?
 2. Tick the AMI you want to use
 3. Launch instance from AMI
 4. Connecting is the same as for a regular instance
+5. Make sure to update security group + environment variable
 
 When using AMI - ensure when connecting to instance to change root to ubuntu e.g. ssh -i ".pem" root@ec2ip.eu-west-1.compute.amazonaws.com should be ssh -i ".pem" ubuntu@ec2ip.eu-west-1.compute.amazonaws.com 
 
+### Elastic IP
+Biodomain example.com and link that IP to that domain so that the end user access the example.com regardless of the ip changes. This is the solution along with domain. 
+
+We are not using it due to security groups as that cements and solidifies our knowledge. Elastic IP cost money. Ireland only allows us to only use 5 IP so not enough bandwidth. We have exhausted. There is a website that can collect your IP automatically in a script and inject that into the virtual environment. Also forward DNS. Cost involved. AWS is not free. Github we can host our own website as long as the website is static and not dynamic. S3 bucket to host static websites. Static websites are good for your own where you don’t need user input as there is no business logic involved. 
+
+Sometimes the code that has been developed is not good. Do not hesitate to let them know. Never try to fix their code. Apply two-min rule, if it is easy to fix then do it, if not send back to development team. You will be blamed if you change too much. Send back to developers with screenshot. For example, node seeds/seed.js code not in documentation but we found it. 
+
+Someone creates subnet
+Someone builds the infrastructure to use
+You will not do everything inside a team. 
+
+You can make an executive decision to override certain commands in order to migrate and edit the development team's if block. 
+
+### Automating the process of setting up/configuring a product/app/db/web-app
+
+- Bootstrap (aka userdata) the configuration of the product 
+- #!/bin/bash
+- add script
+- This is done on step 3 in AWS configuration at the bottom
+
+#!/bin/bash
+
+var=$(dig +short myip.opendns.com @resolver1.opendns.com)
+echo $var
+
+hostname -f
