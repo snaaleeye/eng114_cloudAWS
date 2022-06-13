@@ -257,3 +257,103 @@ var=$(dig +short myip.opendns.com @resolver1.opendns.com)
 echo $var
 
 hostname -f
+
+### Amazon S3
+S3 is a simple storage service
+Benefits:
+1. s3 you can put any data. 
+2. No data limit
+3. Global service - highly available & scalable
+
+Storage classes:
+1. Standard class
+The agreement between user and s3 is that we should be able to access data 24/7 - data is actively available
+
+2. Clacier class
+- Data is only available on request - non-active class - data is available but you have to give notice. You pay less. 
+
+CRUD - Create Reade Update Delete
+
+Using AWSCLI - configuration file allows encryption
+
+DR - Disaster Recovery 
+
+Dependencies required:
+- Python 3 or above
+- AWSCLI
+- pip3
+- Update & upgrade
+- AWS access & secret keys for data security
+- AWSCLI Configuration accesskeys + scret keys - 
+region - eu-west1
+language - json 
+
+`aws s3 ls` to list buckets
+`aws --version`
+`aws configure` to add our keys and config
+`aws s3 mb s3://name --region name`
+`aws s3 cp s3://name/ file.md`
+`aws s3 rm s3://bucketname --recursive`
+`aws s3 rb s://bucketname`
+`aws s3 sync s3://bucketname/ test`
+
+
+# Create bucket
+
+import boto3
+
+s3 = boto3.resource('s3')
+
+s3.create_bucket(Bucket='eng114-sharmake-bucket', CreateBucketConfiguration={
+
+    'LocationConstraint': 'eu-west-1'})
+
+# Upload File
+
+import boto3
+
+s3 = boto3.client('s3')
+
+s3.upload_file(
+Filename = 'test.txt',
+Bucket = 'eng114-sharmake-bucket',
+Key = 'test1.txt'
+)
+
+# Retrieve File 
+
+import boto3
+s3 = boto3.client('s3')
+
+s3.download_file(
+Filename = 'test2.txt',
+Bucket = 'eng114-sharmake-bucket',
+Key = 'test1.txt'
+)
+
+# List Buckets
+import boto3
+s3 = boto3.resource('s3')
+
+for bucket in s3.buckets.all():
+    print(bucket.name)
+
+# Delete Buckets
+
+import boto3
+
+s3 = boto3.client("s3")
+
+s3.delete_bucket(Bucket = 'eng114-sharmake-bucket')
+
+# Delete Content
+
+import boto3
+
+s3 = boto3.resource('s3')
+
+s3.Object('eng114-sharmake-bucket', 'tests.txt').delete()
+
+
+
+
