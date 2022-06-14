@@ -417,3 +417,7 @@ Manage cloud watch
 2. Go to Amazon SNS - create topic - Connect email via subscription 
 3. Set all details inside alarm notification and parameters and then create alarm
 4. Go to CloudWatch and check if alarm is configured correctly to the correct email. 
+
+<img width="389" alt="Screenshot 2022-06-14 at 14 04 38" src="https://user-images.githubusercontent.com/105854053/173583970-052719f1-6ea8-48e3-b373-e31deb2ff32a.png">
+
+
