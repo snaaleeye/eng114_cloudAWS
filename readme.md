@@ -292,29 +292,43 @@ region - eu-west1
 language - json 
 
 `aws s3 ls` to list buckets
+
 `aws --version`
+
 `aws configure` to add our keys and config
+
 `aws s3 mb s3://name --region name`
+
 `aws s3 cp s3://name/ file.md`
+
 `aws s3 rm s3://bucketname --recursive`
+
 `aws s3 rb s://bucketname`
+
 `aws s3 sync s3://bucketname/ test`
 
 EC2 Setup 
 
 #!/bin/bash
-sudo apt update
-sudo apt upgrade -y
-sudo apt install python3.7 -y
-sudo apt install python3-pip -y
-sudo pip3 install awscli
-alias python=python3.7
-python -m pip install boto3
-#aws configure
-#access key
-#secret key
-#eu-west-1
-#json
+`sudo apt update`
+
+`sudo apt upgrade -y`
+
+`sudo apt install python3.7 -y`
+
+`sudo apt install python3-pip -y`
+
+`sudo pip3 install awscli`
+
+`alias python=python3.7`
+
+`python -m pip install boto3`
+
+`#aws configure`
+`#access key`
+`#secret key`
+`#eu-west-1`
+`#json`
 
 # Create bucket
 
