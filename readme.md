@@ -498,4 +498,4 @@ Auto scaling - Monitoring - EC2 - View all CloudWatch Metrics
 
 5. Choose in Alarm.
 
-6. Choose SNS topi
+6. Choose SNS topic
