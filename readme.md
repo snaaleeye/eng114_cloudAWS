@@ -453,7 +453,6 @@ Plan - Automate highly available scalable app
 8. Add tags name
 9. Create launch template
 
-
 # Create auto scaling
 
 1. Auto scaling - auto scaling groups - create autoscaling group
@@ -469,6 +468,9 @@ Plan - Automate highly available scalable app
 10. Add notification 
 11. Add tags
 12. Review and create auto scaling group 
+
+![autoscaling-group](https://user-images.githubusercontent.com/105854053/173633472-220617cb-cf25-41f4-8249-a3c2a5839684.png)
+
 
 # Terminate autoscaling group
  
