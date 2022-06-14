@@ -369,6 +369,33 @@ s3 = boto3.resource('s3')
 
 s3.Object('eng114-sharmake-bucket', 'tests.txt').delete()
 
+# Monitoring & Alert Management
 
+1. Cloudwatch to monitor AWS service 
+2. SNS - Simple notification service
+3. SQS - simple queue service - 
 
+What should we monitor?
+- Error logs
+- budgeting 
+- latency 
+- security breaches
+- system tests/health
+- instance health
+- CPU utilisation %
 
+4 Golden Signals
+- Latency (Rquest Service Time)
+- Traffic (User demand)
+- Errors (Rate of failed requests)
+- Saturation (Overall capacity of the system
+
+CPU Usage =>50%
+
+Manage cloud watch 
+
+# How to create an EC2 alarm?
+1. Go to instance - actions - monitor and troubleshoot - Manage CloudWatch alarms 
+2. Go to Amazon SNS - create topic - Connect email via subscription 
+3. Set all details inside alarm notification and parameters and then create alarm
+4. Go to CloudWatch and check if alarm is configured correctly to the correct email. 
