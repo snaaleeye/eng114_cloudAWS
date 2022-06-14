@@ -426,13 +426,76 @@ Manage cloud watch
 
 # Autoscaling and load balancing
 
-Application load balancer
+- Autoscaling automatically adjusts the amount of computational resources based on the resources based on the server load. 
 
-Autoscaling automatically adjusts the amount of computational resources based on the resources based on the server load. 
+- Load balancing distrubtes traffic between EC2 so that no one instance gets overwhelmed. 
 
-Load balancing distrubtes traffic between EC2 so that no one instance gets overwhelmed. 
+Minumum size = 2
+Maximum size = 3
+Desired capacity = 2 
 
-Minumum size
-Maximum size
-Desired capacity 
+Plan - Automate highly available scalable app
+- Launch template
+- Type of LB - elastic load balancer, application load balancer, network load balancer. 
+- ALB - Application Load Balancer: target group/listener group HTTP
+- ALB - Attach required dependencies 
+- Auto-scaling group - attach this to ALB
 
+# Create launch template
+
+1. Instances - Launch Templates
+2. Create launch template - Name launch template using dash - instead of underscore as it can cause issues later 
+3. Choose Ubuntu 18.04
+4. Instance type - t2.micro
+5. Key pair - eng114
+6. Select security group for app
+7. Configure storage - 8gb
+8. Add tags name
+9. Create launch template
+
+
+# Create auto scaling
+
+1. Auto scaling - auto scaling groups - create autoscaling group
+2. Autoscaling name = eng114-sharmake-asg
+3. Find launch template created - default 1
+4. Availability zones eu-west-1a + 1b + 1c
+5. Attach to a new load balancer - application load balancer
+6. Listeners and routing - create target group
+6. Internet-facing 
+7. Health check grace period at least 300 seconds 
+8. Desired Capacity - Minumum Capacity - Maximum Capacity 
+9. Target tracking scaling policy - enter policy
+10. Add notification 
+11. Add tags
+12. Review and create auto scaling group 
+
+# Terminate autoscaling group
+ 
+Autoscaling group - select your autoscaling group - delete 
+
+# Create an alarm 
+
+SNS - Simple Notification Service
+
+1. Topics - Create Topic 
+2. Standard - name
+3. Create topic
+4. Subscriptions - endpoint = email address
+
+
+Instances - Actions - Monitor and Troubleshoot - Manage CloudWatch alarms 
+
+Auto scaling - Monitoring - EC2 - View all CloudWatch Metrics 
+
+1. Choose Alarms.
+
+2. Choose Create alarm.
+
+3. Choose Select metric - EC2 - By Auto-scaling
+
+4. Threshold type - Static.
+
+5. Choose in Alarm.
+
+6. Choose SNS topi
