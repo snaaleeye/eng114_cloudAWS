@@ -135,67 +135,67 @@ To copy file or folder do the following.
 
 ### Once inside the app secure shell (.ssh) run the following commands.
 
-sudo apt-get update -y
-sudo apt-get upgrade -y
+`sudo apt-get update -y`
+`sudo apt-get upgrade -y`
 
-sudo apt-get install nginx -y
+`sudo apt-get install nginx -y`
 
-sudo systemctl start nginx
-sudo systemctl enable nginx
-sudo systemctl status nginx
+`sudo systemctl start nginx`
+`sudo systemctl enable nginx`
+`sudo systemctl status nginx`
 
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs 
-sudo apt-get install npm
-sudo npm install pm2 -g
+`curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`
+`sudo apt-get install -y nodejs`
+`sudo apt-get install npm`
+`sudo npm install pm2 -g`
 
-sudo apt-get install python-software-properties -y
+`sudo apt-get install python-software-properties -y`
 
-sudo nano cp default /etc/nginx/sites-available/ # port 3000 details
-sudo nginx -t 
-sudo systemctl restart nginx
-sudo systemctl enable nginx
+`sudo nano cp default /etc/nginx/sites-available/` # port 3000 details
+`sudo nginx -t`
+`sudo systemctl restart nginx`
+`sudo systemctl enable nginx`
 
-sudo echo "export DB_HOST=mongodb://172.31.20.139:27017/posts" >> ~/.bashrc
-source ~/.bashrc
+`sudo echo "export DB_HOST=mongodb://172.31.20.139:27017/posts" >> ~/.bashrc`
+`source ~/.bashrc`
 
 cd app/app/
-sudo npm install -y
-sudo npm start -d
+`sudo npm install -y`
+`sudo npm start -d`
 
 - At this point the nginx page and app should work. 
 
 ### Move into the db secure shell (ssh) and run the following commands
 
-sudo apt-get update -y #checks the internet
+`sudo apt-get update -y` #checks the internet
 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927
+`sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927`
 
-echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+`echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list`
 
-sudo apt-get update -y
-sudo apt-get upgrade -y
+`sudo apt-get update -y`
+`sudo apt-get upgrade -y`
 
-sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20
+`sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20`
 
-sudo nano /etc/mongod.conf - change this to 27017 and 0.0.0.0 to allow all or to make it private enter app ip
+`sudo nano /etc/mongod.conf` - change this to 27017 and 0.0.0.0 to allow all or to make it private enter app ip
 
-sudo systemctl restart mongod
-sudo systemctl enable mongod
-sudo systemctl status mongod
+`sudo systemctl restart mongod`
+`sudo systemctl enable mongod`
+`sudo systemctl status mongod`
 
 ### Move back into the app ssh and repeat these steps inside app machine
 
 cd app/app/
-sudo npm start -d
+`sudo npm start -d`
 
 ### If the text does not appear try this inside app ssh
 cd app/app/
-node seeds/seed.js 
-sudo npm start -d
+`node seeds/seed.js`
+`sudo npm start -d`
 
 ### To run after leaving ssh run 
-sudo npm start -d (nohup node server.js > /dev/null 2>&1 &) # to run in the background 
+`sudo npm start -d nohup node server.js > /dev/null 2>&1 &` # to run in the background 
 
 
 Tips:
