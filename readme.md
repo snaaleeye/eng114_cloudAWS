@@ -307,9 +307,11 @@ language - json
 
 `aws s3 sync s3://bucketname/ test`
 
-EC2 Setup 
+
+# EC2 Setup 
 
 #!/bin/bash
+
 `sudo apt update`
 
 `sudo apt upgrade -y`
@@ -417,3 +419,20 @@ Manage cloud watch
 2. Go to Amazon SNS - create topic - Connect email via subscription 
 3. Set all details inside alarm notification and parameters and then create alarm
 4. Go to CloudWatch and check if alarm is configured correctly to the correct email. 
+
+
+<img width="389" alt="Screenshot 2022-06-14 at 14 04 38" src="https://user-images.githubusercontent.com/105854053/173583970-052719f1-6ea8-48e3-b373-e31deb2ff32a.png">
+
+
+# Autoscaling and load balancing
+
+Application load balancer
+
+Autoscaling automatically adjusts the amount of computational resources based on the resources based on the server load. 
+
+Load balancing distrubtes traffic between EC2 so that no one instance gets overwhelmed. 
+
+Minumum size
+Maximum size
+Desired capacity 
+
