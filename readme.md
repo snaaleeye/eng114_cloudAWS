@@ -393,7 +393,8 @@ What should we monitor?
 - Errors (Rate of failed requests)
 - Saturation (Overall capacity of the system
 
-CPU Usage =>50%
+<img width="592" alt="Screenshot 2022-06-14 at 11 43 34" src="https://user-images.githubusercontent.com/105854053/173582674-c67c4d3d-8c34-42ef-a997-5412d2b5e645.png">
+
 
 Manage cloud watch 
 
