@@ -208,7 +208,7 @@ Check mongod status
 Check default port 3000 file is correct
 Check all ips are correct
 
-![Two-tier diagram drawio (1)](https://user-images.githubusercontent.com/105854053/173023714-dd66d61b-12a2-4c33-8537-7dc181953020.png)
+[li (3).pdf](https://github.com/snaaleeye/eng114_cloudAWS/files/8899874/li.3.pdf)
 
 
 What are Amazon Machine Image - AMI
@@ -230,6 +230,9 @@ How to use AMI?
 5. Make sure to update security group + environment variable
 
 When using AMI - ensure when connecting to instance to change root to ubuntu e.g. ssh -i ".pem" root@ec2ip.eu-west-1.compute.amazonaws.com should be ssh -i ".pem" ubuntu@ec2ip.eu-west-1.compute.amazonaws.com 
+
+![ami_lifecycle](https://user-images.githubusercontent.com/105854053/173582529-342b74c3-0508-4428-9f05-588bfdae295f.png)
+
 
 ### Elastic IP
 Biodomain example.com and link that IP to that domain so that the end user access the example.com regardless of the ip changes. This is the solution along with domain. 
