@@ -501,3 +501,11 @@ Auto scaling - Monitoring - EC2 - View all CloudWatch Metrics
 5. Choose in Alarm.
 
 6. Choose SNS topic
+
+Surface level SLA
+
+Single point of failure -
+
+Content delivery network
+
+Global Edge Network - look for closest one to avoid latency 
