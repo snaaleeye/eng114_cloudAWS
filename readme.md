@@ -683,6 +683,8 @@ Make sure to use the app's PRIVATE ip when connecting to DB.
 
 Ensure your DB script is correct
 
+## VPC Diagram
+
 <img width="818" alt="Screenshot 2022-06-15 at 16 41 49" src="https://user-images.githubusercontent.com/105854053/173869260-28473b9d-4351-475a-80c6-44a657b35791.png">
 
 
