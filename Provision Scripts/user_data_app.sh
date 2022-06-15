@@ -28,7 +28,7 @@ sudo mv default /etc/nginx/sites-available/default
 
 sudo systemctl restart nginx
 
-sudo echo "export DB_HOST=mongodb://34.248.111.132:27017/posts" >> ~/.bashrc
+sudo echo "export DB_HOST=mongodb://10.0.20.62:27017/posts" >> ~/.bashrc
 
 source ~/.bashrc
 

@@ -667,3 +667,20 @@ Create a new instance using the network and subnet you have now created.
 <img width="865" alt="Screenshot 2022-06-15 at 13 47 19" src="https://user-images.githubusercontent.com/105854053/173830453-5b1584fb-52ac-4a65-9772-f3e7efb19902.png">
 
 
+# Re-deployment of 2 tier architecture
+
+- Create another subnet-private for Mongodb
+- Plan design rules from public subnet & ec2 to private-subnet & ec2
+- Explain route table for private subnet - rules for private RT - do you need to create a private route table or not?
+- Create NACLs for your subnets to add a security layer
+
+10.0.20.0/24
+
+# What to do if there are errors
+Make sure to only use 1 route table. Connect both subnets to 1 route table. 
+
+Make sure to use the app's PRIVATE ip when connecting to DB. 
+
+Ensure your DB script is correct
+
+
