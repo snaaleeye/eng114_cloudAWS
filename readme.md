@@ -652,7 +652,7 @@ Virtual Private Cloud (VPC)
 
 <img width="869" alt="Screenshot 2022-06-15 at 13 40 27" src="https://user-images.githubusercontent.com/105854053/173829115-7ca4846e-32c0-466f-86b4-0fab7ac1b7df.png">
 
-4. Create a route table within your VPC
+## Step 4: Create a route table within your VPC
 - edit route table to add rules to connect to Internet Gateway 0.0.0.0 ig
 - edit subnet association
 -
