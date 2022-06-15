@@ -569,11 +569,20 @@ A VPC can have upto 200 subnets.
 
 https://docs.aws.amazon.com/quicksight/latest/user/vpc-subnets.html
 
+<img width="500" alt="Screenshot 2022-06-15 at 11 14 31" src="https://user-images.githubusercontent.com/105854053/173803727-9b49da0c-eae0-4351-9d9a-87b60cec4536.png">
+
+
 ## What is a CIDR (Classless Inter-Domain Routing) block?
 
 CIDR block a method for allocating IP addresses and IP routing in the VPC. The IP can be IPv4 or IPv6 format.
 
 When you create a VPC, you assign it an IPv4/IPv6 CIDR block (a range of private and public IPv4/ipv6 addresses), or both (dual-stack). Private IPv4/IPv6 addresses are not reachable over the internet while public addresses are. To connect to your instance over the internet, or to enable communication between your instances and other AWS services that have public endpoints, you can assign a public IPv4/IPv6 address to your instance.
+
+
+![ELB-outside-VPC](https://user-images.githubusercontent.com/105854053/173804302-88074176-cdbd-4d3d-a739-52d88fa22367.png)
+
+
+
 
 ## How to create a CIDR block?
 
