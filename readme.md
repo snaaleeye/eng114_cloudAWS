@@ -624,3 +624,20 @@ To associate an IPv6 CIDR block with a VPC using the console
 Networking and Cryptography library - high-speed software library for network communication, encryption, decryption, signatures, etc
 
 A network access control list (NACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. You might set up NACLs with rules similar to your security groups in order to add an additional layer of security to your VPC
+
+NACL work on a subnet level - generic rules.
+Security groups work on an instance level. 
+
+Virtual Private Cloud (VPC) 
+10.0.0.0/16 
+10.0.1.0/24
+
+1. Create a VPC in Ireland eu-west-1
+2. Create Internet Gateway
+- Attach the internet gatewaywith your VPC
+3. Create a subnet/s - associate subnet with your VPC
+4. Create a route table within your VPC
+- edit route table to add rules to connect to Internet Gateway 0.0.0.0 ig
+- edit subnet association
+10.0.9.0/24
+
