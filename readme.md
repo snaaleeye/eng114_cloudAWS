@@ -632,12 +632,31 @@ Virtual Private Cloud (VPC)
 10.0.0.0/16 
 10.0.1.0/24
 
-1. Create a VPC in Ireland eu-west-1
-2. Create Internet Gateway
+## Step 1: Create a VPC in Ireland eu-west-1
+
+<img width="1438" alt="Screenshot 2022-06-15 at 13 34 19" src="https://user-images.githubusercontent.com/105854053/173827881-be20598a-90f9-4371-ab31-e4dc694de18d.png">
+
+<img width="1419" alt="Screenshot 2022-06-15 at 13 35 16" src="https://user-images.githubusercontent.com/105854053/173828056-5243d917-70df-4045-82e4-fce0147dfa33.png">
+
+<img width="811" alt="Screenshot 2022-06-15 at 13 35 47" src="https://user-images.githubusercontent.com/105854053/173828161-7a1d47a6-8bfc-450e-bcfe-48b12f4221eb.png">
+
+## Step 2: Create Internet Gateway
 - Attach the internet gatewaywith your VPC
-3. Create a subnet/s - associate subnet with your VPC
+
+<img width="871" alt="Screenshot 2022-06-15 at 13 36 42" src="https://user-images.githubusercontent.com/105854053/173828375-69f90fd6-2d78-435d-886d-ec9a5db20413.png">
+
+<img width="1130" alt="Screenshot 2022-06-15 at 13 38 24" src="https://user-images.githubusercontent.com/105854053/173828703-a4de74f8-da51-4c24-8be7-a3e32e97e5c5.png">
+
+## Step 3: Create a subnet/s - associate subnet with your VPC
+10.0.9.0/24
+
+<img width="869" alt="Screenshot 2022-06-15 at 13 40 27" src="https://user-images.githubusercontent.com/105854053/173829115-7ca4846e-32c0-466f-86b4-0fab7ac1b7df.png">
+
 4. Create a route table within your VPC
 - edit route table to add rules to connect to Internet Gateway 0.0.0.0 ig
 - edit subnet association
-10.0.9.0/24
+-
+<img width="868" alt="Screenshot 2022-06-15 at 13 41 45" src="https://user-images.githubusercontent.com/105854053/173829435-5f08e8f6-d7de-4194-b98f-b550bb2da54d.png">
+
+<img width="1383" alt="Screenshot 2022-06-15 at 13 43 24" src="https://user-images.githubusercontent.com/105854053/173829676-15031c6a-c8d6-4047-b257-26a0e1b224d9.png">
 
