@@ -1,4 +1,4 @@
-### What is Cloud Comupting
+### What is Cloud Computing
 
 Cloud computing is when you use a network of remote servers hosted on the internet to store, manage, and process date, rather than a local server or a personal computer. 
 
