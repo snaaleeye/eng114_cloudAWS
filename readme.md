@@ -512,3 +512,106 @@ Global Edge Network - look for closest one to avoid latency
 
 <img width="895" alt="Screenshot 2022-06-15 at 09 48 55" src="https://user-images.githubusercontent.com/105854053/173785161-6fb416e1-1a2d-4424-b185-9ba75cfe4a6d.png">
 
+Performance testing
+- Load testing
+- Spike testing
+- Stress testing
+- Performance testing 
+
+
+# Soak testing 
+
+involves testing a system with a typical production load, over a continuous availability period, to validate system behavior under production use. 
+
+For example, in software testing, a system may behave exactly as expected when tested for one hour. However, when it is tested for three hours, problems such as memory leaks cause the system to fail or behave unexpectedly.
+
+# AWS VPC
+
+## What is a VPC?
+
+Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined. 
+
+This virtual network closely resembles a traditional network that you'd operate in your own data centre, with the benefits of using the scalable infrastructure of AWS.
+
+https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+
+## Why should we use VPC? - Benefits of VPC?
+
+- Easy to use and setup
+
+Can be setup through AWS management console. 
+
+Subnets, IP ranges, route tables and security groups are automatically created. 
+
+- Security 
+
+Provides advanced security features
+
+- Scalability and Reliability
+
+## What is an internet gateway?
+
+An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between your VPC and the internet. 
+
+An internet gateway enables resources (like EC2 instances) in your public subnets to connect to the internet if the resource has a public IPv4 address or an IPv6 address. Similarly, resources on the internet can initiate a connection to resources in your subnet using the public IPv4 address or IPv6 address. 
+
+An internet gateway serves two purposes: to provide a target in your VPC route tables for internet-routable traffic, and to perform network address translation (NAT) for instances that have been assigned public IPv4 addresses.
+
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
+
+## What is a Subnet?
+
+A subnet is a range of IP addresses in your VPC. You can attach AWS resources, such as EC2 instances and RDS DB instances, to subnets. 
+
+You can create subnets to group instances together according to your security and operational needs.
+
+A VPC can have upto 200 subnets.
+
+https://docs.aws.amazon.com/quicksight/latest/user/vpc-subnets.html
+
+## What is a CIDR (Classless Inter-Domain Routing) block?
+
+CIDR block a method for allocating IP addresses and IP routing in the VPC. The IP can be IPv4 or IPv6 format.
+
+When you create a VPC, you assign it an IPv4/IPv6 CIDR block (a range of private and public IPv4/ipv6 addresses), or both (dual-stack). Private IPv4/IPv6 addresses are not reachable over the internet while public addresses are. To connect to your instance over the internet, or to enable communication between your instances and other AWS services that have public endpoints, you can assign a public IPv4/IPv6 address to your instance.
+
+## How to create a CIDR block?
+
+1. Open the Amazon VPC console 
+
+2. Choose Your VPCs.
+
+3. Choose Actions, Edit CIDRs.
+
+4. Choose Add new IPv4 CIDR.
+
+5. For IPv4 CIDR block, do one of the following:
+
+a) Choose IPv4 CIDR manual input and enter an IPv4 CIDR block.
+
+b) Choose IPAM-allocated IPv4 CIDR and select a CIDR from an IPv4 IPAM pool.
+
+OR
+
+To associate an IPv6 CIDR block with a VPC using the console
+
+1. Open the Amazon VPC console
+
+2. Choose Your VPCs.
+
+3. Choose Actions, Edit CIDRs.
+
+5. Choose Add new IPv6 CIDR.
+
+6. The CIDR block options when you add a CIDR are the same as when you create a VPC. 
+
+7. Choose Select CIDR.
+
+8. Choose Close.
+
+
+## What is a NACLs - use case of NACL
+
+Networking and Cryptography library - high-speed software library for network communication, encryption, decryption, signatures, etc
+
+A network access control list (NACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. You might set up NACLs with rules similar to your security groups in order to add an additional layer of security to your VPC
