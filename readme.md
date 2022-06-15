@@ -509,3 +509,6 @@ Single point of failure -
 Content delivery network
 
 Global Edge Network - look for closest one to avoid latency 
+
+<img width="895" alt="Screenshot 2022-06-15 at 09 48 55" src="https://user-images.githubusercontent.com/105854053/173785161-6fb416e1-1a2d-4424-b185-9ba75cfe4a6d.png">
+
