@@ -660,3 +660,10 @@ Virtual Private Cloud (VPC)
 
 <img width="1383" alt="Screenshot 2022-06-15 at 13 43 24" src="https://user-images.githubusercontent.com/105854053/173829676-15031c6a-c8d6-4047-b257-26a0e1b224d9.png">
 
+## Step 5: Final Step
+
+Create a new instance using the network and subnet you have now created.
+
+<img width="865" alt="Screenshot 2022-06-15 at 13 47 19" src="https://user-images.githubusercontent.com/105854053/173830453-5b1584fb-52ac-4a65-9772-f3e7efb19902.png">
+
+
